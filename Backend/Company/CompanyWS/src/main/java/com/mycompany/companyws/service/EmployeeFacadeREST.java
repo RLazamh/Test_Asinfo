@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.companyws.ws;
+package com.mycompany.companyws.service;
 
 import com.mycompany.companyentity.Employee;
 import java.util.List;
@@ -28,7 +28,7 @@ import javax.ws.rs.core.MediaType;
 @Path("com.mycompany.companyentity.employee")
 public class EmployeeFacadeREST extends AbstractFacade<Employee> {
 
-    @PersistenceContext(unitName = "com.jorupe.ws_Company_war_1.0-SNAPSHOTPU")
+    @PersistenceContext(unitName = "prod")
     private EntityManager em;
 
     public EmployeeFacadeREST() {

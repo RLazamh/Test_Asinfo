@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.companyws.ws;
+package com.mycompany.companyws.service;
 
-import com.mycompany.companyentity.Person;
+import com.mycompany.companyentity.Departament;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -25,27 +25,27 @@ import javax.ws.rs.core.MediaType;
  * @author roger
  */
 @Stateless
-@Path("com.mycompany.companyentity.person")
-public class PersonFacadeREST extends AbstractFacade<Person> {
+@Path("com.mycompany.companyentity.departament")
+public class DepartamentFacadeREST extends AbstractFacade<Departament> {
 
-    @PersistenceContext(unitName = "com.jorupe.ws_Company_war_1.0-SNAPSHOTPU")
+    @PersistenceContext(unitName = "prod")
     private EntityManager em;
 
-    public PersonFacadeREST() {
-        super(Person.class);
+    public DepartamentFacadeREST() {
+        super(Departament.class);
     }
 
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(Person entity) {
+    public void create(Departament entity) {
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Integer id, Person entity) {
+    public void edit(@PathParam("id") Integer id, Departament entity) {
         super.edit(entity);
     }
 
@@ -58,21 +58,21 @@ public class PersonFacadeREST extends AbstractFacade<Person> {
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Person find(@PathParam("id") Integer id) {
+    public Departament find(@PathParam("id") Integer id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Person> findAll() {
+    public List<Departament> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Person> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Departament> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 
